@@ -52,7 +52,7 @@ public class CommandUserLogin extends Command {
             session.setAttribute("buttoms", Buttoms);
             LineItems LI = new LineItems();
             List Cart = LI.getCupcakes();
-            request.setAttribute("Cart", Cart);
+            session.setAttribute("Cart", Cart);
             request.getRequestDispatcher("/jsp/shop.jsp").forward(request, response);
         } else {
             request.setAttribute("errormessage", "Wrong username og password...");

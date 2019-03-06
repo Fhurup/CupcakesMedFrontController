@@ -11,6 +11,11 @@ package data;
  */
 public class Cupcake {
 
+    public String getName() {
+        return cupcakeTop + " "+ cupcakeButtom;
+    }
+
+
     @Override
     public String toString() {
         return "Cupcake{" + "cupcakeTop=" + cupcakeTop + ", cupcakeButtom=" + cupcakeButtom + ", price=" + price + '}';

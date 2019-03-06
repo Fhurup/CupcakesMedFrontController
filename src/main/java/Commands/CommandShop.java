@@ -41,7 +41,7 @@ public class CommandShop extends Command {
         LineItems LI = new LineItems();
         LI.AddCupcake(cc);
         List Cart = LI.getCupcakes();
-        request.setAttribute("Cart", Cart);
+        request.getSession().setAttribute("Cart", Cart);
         request.getSession().getAttribute("toppings");
         request.getSession().getAttribute("buttoms");
         request.getRequestDispatcher("/jsp/shop.jsp").forward(request, response);

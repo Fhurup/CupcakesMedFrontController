@@ -50,5 +50,21 @@
                 %>
             </tbody>
             </table>
+            <table>
+            <thead><tr><th>Cupcake</th><th>Price</th></tr></thead> 
+            <tbody>
+                        <% List<Cupcake> cupcakes = (ArrayList<Cupcake>) session.getAttribute("Cart");
+                            for (Cupcake cupcake : cupcakes) {
+                        %>  
+                <tr>
+                    <td><%= cupcake.getName()%></td><%=cupcake.getPrice()%>
+                </tr>
+                <%
+                    }
+                %>
+            </tbody>
+            </table>
+            
+            
     </body>
 </html>
