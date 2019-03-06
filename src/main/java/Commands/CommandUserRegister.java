@@ -11,6 +11,7 @@ import data.DBConnector;
 import data.DataException;
 import data.DataMapper;
 import data.Role;
+import data.User;
 import java.io.IOException;
 import java.sql.SQLException;
 import javax.servlet.ServletException;
@@ -44,6 +45,8 @@ public class CommandUserRegister extends Command {
         
         if (dm.makeUser(username, createPw, balance, createEmail, role))
         {
+            User user = dm.getUser(createEmail);
+            session.setAttribute("user", user);
             session.setAttribute("loggedIn", true );
             response.sendRedirect("/jsp/shop.jsp");
         }
