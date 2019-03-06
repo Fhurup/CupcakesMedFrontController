@@ -18,7 +18,7 @@
                 errormessage = (String) request.getAttribute("errormessage");
             }
         %>
-        <h1>FEjl</h1>
+        <h1>Nej ikke fejl</h1>
         <h2>Error</h2>
 
         <p>Error message: <%= errormessage%></p>
