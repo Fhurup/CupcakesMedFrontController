@@ -10,8 +10,18 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <style>
+            #loginform {
+                color: blue;
+                text-align: center;
+                border-style: solid;
+                border-width: 5px;
+                border-color: green;
+            }
+        </style>
     </head>
     <body>
+        <div id="loginform">
         <h1>Login</h1>
         <form action="FrontController" method="POST">
             Email:<input type="text" name="email"/><br/><br/>
@@ -19,6 +29,7 @@
             <input type="hidden" name="command" value="userlogin">
             <input type="submit" value="login"/>
         </form>
+        </div>
         <br/><br/>
         <h1> Create New User</h1>
         <form action="FrontController" method="POST">

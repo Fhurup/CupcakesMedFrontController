@@ -13,6 +13,7 @@ import data.DBConnector;
 import data.DataException;
 import data.DataMapper;
 import data.LineItems;
+import data.User;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -41,8 +42,10 @@ public class CommandUserLogin extends Command {
         DataMapper dm = new DataMapper(connector);
         String email = request.getParameter("email");
         String pw = request.getParameter("userpass");
+        User user = dm.getUser(email);
         if (dm.validateUser(email, pw)) {
-            session.setAttribute("email", email);
+            session.setAttribute("user", user);
+            //session.setAttribute("email", email);
             session.setAttribute("loggedIn", true);
             List<CupcakeTop> Toppings = new ArrayList<>(dm.getAllCupcakeTops());
             List<CupcakeButtom> Buttoms = new ArrayList<>(dm.getAllCupcakeButtoms());
