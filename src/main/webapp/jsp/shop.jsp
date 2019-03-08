@@ -56,13 +56,13 @@
             </tbody>
             </table>
             <table class="table table-striped">
-            <thead><tr><th>Cupcake</th><th>Price</th><th>Amount</th></tr></thead> 
+            <thead><tr><th>Cupcake</th><th>Price</th></thead> 
             <tbody>
                         <% List<Cupcake> cupcakes = (ArrayList<Cupcake>) session.getAttribute("Cart");
                             for (Cupcake cupcake : cupcakes) {
                         %>  
                 <tr>
-                    <td><%= cupcake.getName()%></td><td><%=cupcake.getPrice()%></td><td><%=cupcake.getPrice()%></td>
+                    <td><%= cupcake.getName()%></td><td><%=cupcake.getPrice()%></td>
                 </tr>
                 <%
                     }
