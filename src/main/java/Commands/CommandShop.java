@@ -16,6 +16,7 @@ import data.DataMapper;
 import data.LineItems;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -34,16 +35,32 @@ public class CommandShop extends Command {
             throw new DataException();
         }
         DataMapper dm = new DataMapper(connector);
-        
+
         int topping = Integer.parseInt(request.getParameter("firstnumber"));
         int buttom = Integer.parseInt(request.getParameter("secondnumber"));
-        Cupcake cc = new Cupcake(dm.getAllCupcakeTops().get(topping -1), dm.getAllCupcakeButtoms().get(buttom - 1));
-        LineItems LI = new LineItems();
-        LI.AddCupcake(cc);
-        List Cart = LI.getCupcakes();
-        request.getSession().setAttribute("Cart", Cart);
+        int amount = Integer.parseInt(request.getParameter("amount"));
+        ArrayList IT = (ArrayList) request.getSession().getAttribute("Cart");
+        for (int i = 0; i < amount; i++) {
+            Cupcake cc = new Cupcake(dm.getAllCupcakeTops().get(topping - 1), dm.getAllCupcakeButtoms().get(buttom - 1));
+            IT.add(cc);
+        }
+
+        request.getSession().setAttribute("Cart", IT);
         request.getSession().getAttribute("toppings");
         request.getSession().getAttribute("buttoms");
         request.getRequestDispatcher("/jsp/shop.jsp").forward(request, response);
+    }
+
+    public static int totalPrice(ArrayList<Cupcake> cart) {
+        int totalPrice = 0;
+        for (Cupcake cupcake : cart) {
+            totalPrice += cupcake.getPrice();
+        }
+
+        return totalPrice;
+    }
+
+    public void addCupcakeToCart(int top, int buttom, int amount) {
+
     }
 }
