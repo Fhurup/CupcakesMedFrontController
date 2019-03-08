@@ -37,6 +37,7 @@ public abstract class Command
         commands.put("userregister", new CommandUserRegister());
         commands.put("landingpage", new CommandLandingPage());
         commands.put("addCupcakeToCart", new CommandShop());
+        commands.put("BuyCupcakes", new CommandBuy());
 
 
 
