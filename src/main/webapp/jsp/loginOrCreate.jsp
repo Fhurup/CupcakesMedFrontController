@@ -3,7 +3,7 @@
     Created on : Mar 5, 2019, 10:43:24 AM
     Author     : frede
 --%>
-<link href="../css/loginOrCreate.css" rel="stylesheet" type="text/css"/>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%--include file="topMenu.jsp" --%>
 <!DOCTYPE html>
@@ -12,15 +12,17 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <%--<style>
-            #loginform {
-                color: blue;
-                text-align: center;
-                border-style: solid;
-                border-width: 5px;
-                border-color: green;
+        <style>
+            .container {
+                width: 500px;
+                clear: both;
             }
-        </style>--%>
+
+            .container input {
+                width: 100%;
+                clear: both;
+            }
+        </style>
     </head>
     <body>
         <div class="container">
