@@ -42,6 +42,19 @@ public class DataMapper {
             return false;
         }
     }
+    
+        public boolean takeOrder(ArrayList <Cupcake> order, int totalPrice) {
+        try {
+            for(Cupcake cc : order){
+            String query = "insert into `OrderLine` values ('" + cc.getName() + "', '" + cc.getName() + "', " + 1 + ", " + totalPrice + ");";
+            Connection connection = connector.getConnection();
+            connection.createStatement().executeUpdate(query);
+            }
+            return true;
+        } catch (SQLException ex) {
+            return false;
+        }
+    }
 
 
     public boolean validateUser(String email, String password) {
@@ -54,7 +67,7 @@ public class DataMapper {
             } else {
                 return false;
             }
-        } catch (DataException ex) {
+        } catch (Exception ex) {
             return false;
         }
     }
@@ -94,6 +107,13 @@ public class DataMapper {
     public static void main(String[] args) throws SQLException, DataException {
         DBConnector connector = new DBConnector();
         DataMapper dm = new DataMapper(connector);
+        ArrayList cc = new ArrayList();
+        CupcakeButtom kk = new CupcakeButtom("hej", 10);
+        CupcakeTop kt = new CupcakeTop("med", 10);
+        cc.add(new Cupcake(kt, kk));
+        if(dm.takeOrder(cc, 0));{
+        System.out.println("suoperb");
+    }
 //        dm.makeUser("frederiktest", "1234", 700, "frederik@frederik.com", Role.U);
         //System.out.println(dm.validateUser("frederik@frederik.com", "1235"));
         //System.out.println(dm.validateUser("frederik@frederik.co", "1234"));
