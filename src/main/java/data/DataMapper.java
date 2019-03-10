@@ -69,7 +69,7 @@ public class DataMapper {
             } else {
                 return false;
             }
-        } catch (DataException ex) {
+        } catch (Exception ex) {
             return false;
         }
     }
