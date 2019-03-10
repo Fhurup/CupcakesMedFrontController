@@ -9,6 +9,7 @@ import data.Cupcake;
 import data.DBConnector;
 import data.DataException;
 import data.DataMapper;
+import data.LineItems;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -32,9 +33,10 @@ public class CommandBuy extends Command {
             throw new DataException();
         }
         DataMapper dm = new DataMapper(connector);
+        LineItems LI = (LineItems) request.getSession().getAttribute("Cart");
+        ArrayList<Cupcake> Cart = LI.getCupcakes();
         
-        
-        dm.takeOrder((ArrayList<Cupcake>) request.getSession().getAttribute("Cart"), CommandShop.totalPrice((ArrayList) request.getSession().getAttribute("Cart")));
+        dm.takeOrder(Cart);
         
         request.getSession().getAttribute("Cart");
         request.getSession().getAttribute("toppings");

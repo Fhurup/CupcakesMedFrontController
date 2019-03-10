@@ -3,6 +3,7 @@
     Created on : Mar 5, 2019, 11:57:54 AM
     Author     : frede
 --%>
+<%@page import="data.LineItems"%>
 <%@page import="data.User"%>
 <script src="../images/maxcdn.bootstrapcdn.com_bootstrap_3.4.0_js_bootstrap.min.js" type="text/javascript"></script>
 <%@page import="data.Cupcake"%>
@@ -63,13 +64,14 @@
             </tbody>
         </table>
         <table class="table table-striped">
-            <thead><tr><th>Cupcake</th><th>Price</th></thead> 
+            <thead><tr><th>Cupcake</th><th>Price</th><th>Amount</th></thead> 
             <tbody>
-                <% List<Cupcake> cupcakes = (ArrayList<Cupcake>) session.getAttribute("Cart");
+                <% LineItems LI = (LineItems)session.getAttribute("Cart");
+                    ArrayList<Cupcake> cupcakes = LI.getCupcakes();
                     for (Cupcake cupcake : cupcakes) {
                 %>  
                 <tr>
-                    <td><%= cupcake.getName()%></td><td><%=cupcake.getPrice()%></td>
+                    <td><%= cupcake.getName()%></td><td><%=cupcake.getPrice()%></td><td><%=cupcake.getAmount()%></td>
                 </tr>
                 <%
                     }

@@ -39,13 +39,11 @@ public class CommandShop extends Command {
         int topping = Integer.parseInt(request.getParameter("firstnumber"));
         int buttom = Integer.parseInt(request.getParameter("secondnumber"));
         int amount = Integer.parseInt(request.getParameter("amount"));
-        ArrayList IT = (ArrayList) request.getSession().getAttribute("Cart");
-        for (int i = 0; i < amount; i++) {
-            Cupcake cc = new Cupcake(dm.getAllCupcakeTops().get(topping - 1), dm.getAllCupcakeButtoms().get(buttom - 1));
-            IT.add(cc);
-        }
-
-        request.getSession().setAttribute("Cart", IT);
+        LineItems LI = (LineItems)request.getSession().getAttribute("Cart");
+        LI.AddCupcake(new Cupcake(dm.getAllCupcakeTops().get(topping - 1), dm.getAllCupcakeButtoms().get(buttom - 1),amount));
+        
+        
+        request.getSession().setAttribute("Cart", LI);
         request.getSession().getAttribute("toppings");
         request.getSession().getAttribute("buttoms");
         request.getRequestDispatcher("/jsp/shop.jsp").forward(request, response);
@@ -54,13 +52,9 @@ public class CommandShop extends Command {
     public static int totalPrice(ArrayList<Cupcake> cart) {
         int totalPrice = 0;
         for (Cupcake cupcake : cart) {
-            totalPrice += cupcake.getPrice();
+            totalPrice += cupcake.getPrice() * cupcake.getAmount();
         }
 
         return totalPrice;
-    }
-
-    public void addCupcakeToCart(int top, int buttom, int amount) {
-
     }
 }
