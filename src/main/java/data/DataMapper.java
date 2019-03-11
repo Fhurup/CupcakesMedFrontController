@@ -43,10 +43,12 @@ public class DataMapper {
         }
     }
     
-        public boolean takeOrder(ArrayList <Cupcake> order, int totalPrice) {
+        public boolean takeOrder(ArrayList <Cupcake> order) {
         try {
+            int ID1 = (int) Math.random()*10000000;
+            
             for(Cupcake cc : order){
-            String query = "insert into `OrderLine` values ('" + cc.getName() + "', '" + cc.getName() + "', " + 1 + ", " + totalPrice + ");";
+            String query = "insert into `OrderLine` values ('" + cc.getCupcakeTop()+ "', '" + cc.getCupcakeButtom()+ "', " + cc.getAmount() + "," + ID1 + ");";
             Connection connection = connector.getConnection();
             connection.createStatement().executeUpdate(query);
             }
@@ -67,7 +69,7 @@ public class DataMapper {
             } else {
                 return false;
             }
-        } catch (DataException ex) {
+        } catch (Exception ex) {
             return false;
         }
     }
@@ -108,13 +110,14 @@ public class DataMapper {
         DBConnector connector = new DBConnector();
         DataMapper dm = new DataMapper(connector);
         ArrayList cc = new ArrayList();
-        CupcakeButtom kk = new CupcakeButtom("hej", 10);
-        CupcakeTop kt = new CupcakeTop("med", 10);
-        cc.add(new Cupcake(kt, kk));
-        if(dm.takeOrder(cc, 0));{
+        CupcakeButtom kk = new CupcakeButtom("Blue cheese", 10);
+        CupcakeTop kt = new CupcakeTop("Almond", 10);
+        cc.add(new Cupcake(kt, kk, 1));
+        if(dm.takeOrder(cc));{
         System.out.println("suoperb");
+        System.out.println(cc);
     }
-//        dm.makeUser("frederiktest", "1234", 700, "frederik@frederik.com", Role.U);
+//       dm.makeUser("frederiktest", "1234", 700, "frederik@frederik.com", Role.U);
         //System.out.println(dm.validateUser("frederik@frederik.com", "1235"));
         //System.out.println(dm.validateUser("frederik@frederik.co", "1234"));
         

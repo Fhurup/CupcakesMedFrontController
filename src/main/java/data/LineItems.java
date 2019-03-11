@@ -13,11 +13,10 @@ import java.util.ArrayList;
  */
 public class LineItems {
     private ArrayList<Cupcake> Cupcakes = new ArrayList();
-    private int amount;
+    
 
-    public void AddCupcake(Cupcake Cupcake, int amount) {
+    public void AddCupcake(Cupcake Cupcake) {
         this.Cupcakes.add(Cupcake);
-        this.amount = amount;
     }
 
     @Override

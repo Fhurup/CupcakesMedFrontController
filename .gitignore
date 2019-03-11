@@ -21,3 +21,14 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+<<<<<<< HEAD
+target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+target/maven-archiver/pom.properties
+target/CupcakesMedFrontController-1.0-SNAPSHOT/WEB-INF/classes/.netbeans_automatic_build
+target/CupcakesMedFrontController-1.0-SNAPSHOT/Tomcat.dpf
+target/CupcakesMedFrontController-1.0-SNAPSHOT/.DS_Store
+=======
+*.lst
+target/maven-archiver/pom.properties
+target/maven-archiver/pom.properties
+>>>>>>> 2d6e30427ce1aec6e7e7d6774dac42c4817fa62f
