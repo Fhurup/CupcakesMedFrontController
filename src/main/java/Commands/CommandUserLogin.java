@@ -24,11 +24,25 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- *
- * @author frede
+ * This class is used if the user tries to log in.
  */
 public class CommandUserLogin extends Command {
 
+    /**
+     * This method takes the parameters email and password and uses the
+     * validateUser method from the DataMapper check if the information matches
+     * an existing user. If successful it saves the user in the session and sets
+     * a session attribute called "loggedIn" to true.
+     * It then prepares information needed for the shop page, and forwards the
+     * request and response to the shop page.
+     * If unsuccessful it sets the attribute "errormessage" and forwards
+     * request and response to the error page.
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     * @throws DataException
+     */
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, DataException {
         HttpSession session = request.getSession();

@@ -18,6 +18,15 @@ public class DataMapper {
         this.connector = connector;
     }
 
+    /**
+     * The getUser method is used to find a user from the database by their
+     * email which is used as the primary key in the database and the return
+     * that user.
+     *
+     * @param email
+     * @return User
+     * @throws DataException
+     */
     public User getUser(String email) throws DataException {
         try {
             String query = "select * from `User` where email='" + email + "';";
@@ -31,7 +40,17 @@ public class DataMapper {
         }
     }
 
-    //mangler at handle situation hvor man prøver at lave en ny bruger med mail der allerede eksistere (PK)
+    /**
+     * The makeUser method is used to insert a new user into the database. If
+     * successful it returns true, otherwise it returns false.
+     *
+     * @param username
+     * @param password
+     * @param balance
+     * @param email
+     * @param role
+     * @return boolean
+     */
     public boolean makeUser(String username, String password, int balance, String email, Role role) {
         try {
             String query = "insert into `User` values ('" + username + "', '" + password + "', " + balance + ", '" + email + "', '" + role + "');";
@@ -42,15 +61,15 @@ public class DataMapper {
             return false;
         }
     }
-    
-        public boolean takeOrder(ArrayList <Cupcake> order) {
+
+    public boolean takeOrder(ArrayList<Cupcake> order) {
         try {
-            int ID1 = (int) Math.random()*10000000;
-            
-            for(Cupcake cc : order){
-            String query = "insert into `OrderLine` values ('" + cc.getCupcakeTop()+ "', '" + cc.getCupcakeButtom()+ "', " + cc.getAmount() + "," + ID1 + ");";
-            Connection connection = connector.getConnection();
-            connection.createStatement().executeUpdate(query);
+            int ID1 = (int) Math.random() * 10000000;
+
+            for (Cupcake cc : order) {
+                String query = "insert into `OrderLine` values ('" + cc.getCupcakeTop() + "', '" + cc.getCupcakeButtom() + "', " + cc.getAmount() + "," + ID1 + ");";
+                Connection connection = connector.getConnection();
+                connection.createStatement().executeUpdate(query);
             }
             return true;
         } catch (SQLException ex) {
@@ -58,13 +77,18 @@ public class DataMapper {
         }
     }
 
-
+    /**
+     * The validateUser method checks if the given password matches the user with the given email.
+     * If it does match it returns true, otherwise it returns false.
+     * @param email
+     * @param password
+     * @return boolean
+     */
     public boolean validateUser(String email, String password) {
         try {
-            if (getUser(email) == null){
+            if (getUser(email) == null) {
                 return false;
-            }
-            else if (getUser(email).getPassword().equals(password)) {
+            } else if (getUser(email).getPassword().equals(password)) {
                 return true;
             } else {
                 return false;
@@ -90,7 +114,7 @@ public class DataMapper {
         return AllCupcakeButtoms;
     }
 
-        public ArrayList<CupcakeTop> getAllCupcakeTops() throws DataException {
+    public ArrayList<CupcakeTop> getAllCupcakeTops() throws DataException {
         ArrayList<CupcakeTop> AllCupcakeTops = new ArrayList();
         try {
             String query = "SELECT * FROM `CupcakeTop`;";
@@ -105,7 +129,7 @@ public class DataMapper {
 
         return AllCupcakeTops;
     }
-    
+
     public static void main(String[] args) throws SQLException, DataException {
         DBConnector connector = new DBConnector();
         DataMapper dm = new DataMapper(connector);
@@ -113,14 +137,14 @@ public class DataMapper {
         CupcakeButtom kk = new CupcakeButtom("Blue cheese", 10);
         CupcakeTop kt = new CupcakeTop("Almond", 10);
         cc.add(new Cupcake(kt, kk, 1));
-        if(dm.takeOrder(cc));{
-        System.out.println("suoperb");
-        System.out.println(cc);
-    }
+        if (dm.takeOrder(cc));
+        {
+            System.out.println("suoperb");
+            System.out.println(cc);
+        }
 //       dm.makeUser("frederiktest", "1234", 700, "frederik@frederik.com", Role.U);
         //System.out.println(dm.validateUser("frederik@frederik.com", "1235"));
         //System.out.println(dm.validateUser("frederik@frederik.co", "1234"));
-        
 
     }
 

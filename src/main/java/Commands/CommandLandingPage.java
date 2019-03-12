@@ -12,11 +12,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
- * @author frede
+ *This class is used to send the user back to the loginOrCreate page.
  */
 public class CommandLandingPage extends Command {
-
+    /**
+     * This method forwards the request and response to the loginOrCreate page.
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     * @throws DataException 
+     */
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, DataException {
         request.getRequestDispatcher("/jsp/loginOrCreate.jsp").forward(request, response);

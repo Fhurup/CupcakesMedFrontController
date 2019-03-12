@@ -12,11 +12,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
- * @author frede
+ *This class is used if the "command" parameter is unknown to the system.
  */
 public class CommandUnknown extends Command {
-
+    /**
+     * This method sets an attribute called "errormessage" and forwards the request and response to the error page.
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     * @throws DataException 
+     */
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, DataException {
         request.setAttribute("errormessage", "Unknown command...");
