@@ -25,8 +25,23 @@ import java.util.List;
  */
 public class CommandShop extends Command {
 
+    /**
+     * Method takes parameters(int topping, int buttom and int amount) from request and creates
+     * a new cupcake.
+     * Using the Datamapper method it retrieves the correspondent topping and buttom based on the Integer Value.
+     * Creating the amount of Cupcakes based on Integer value 'Amount' 
+     * if successful adds it to the session's LineItem ArrayList object.
+     * and forwards the request & response to Shop.jsp
+     * 
+     * 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     * @throws DataException 
+     */
+    
     @Override
-
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, DataException {
         DBConnector connector;
         try {
@@ -49,6 +64,13 @@ public class CommandShop extends Command {
         request.getRequestDispatcher("/jsp/shop.jsp").forward(request, response);
     }
 
+    /**
+     * Method takes ArrayList<Cupcakes> and calculates total price of cart by
+     * iterating through ArrayList and adding up all cupcake.getPrice() and returns Integer totalPrice
+     * @param cart
+     * @return Integer totalPrice
+     */
+    
     public static int totalPrice(ArrayList<Cupcake> cart) {
         int totalPrice = 0;
         for (Cupcake cupcake : cart) {

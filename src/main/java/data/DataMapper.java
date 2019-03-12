@@ -61,7 +61,14 @@ public class DataMapper {
             return false;
         }
     }
-
+/**
+ * 
+ * Method takes an Arraylist(Cupcakes) order and inserts into database
+ * if successful returns true
+ * @param order
+ * @return boolean
+ */
+    
     public boolean takeOrder(ArrayList<Cupcake> order) {
         try {
             int ID1 = (int) Math.random() * 10000000;
@@ -97,7 +104,12 @@ public class DataMapper {
             return false;
         }
     }
-
+/**
+ * Method takes all data from CupcakeBottom table in sql Database and creates a new CupCakeBottom object
+ * for each row in database and return an arraylist of all the CupcakeBottoms
+ * @return ArrayList<CupcakeButtom>
+ * @throws DataException 
+ */
     public ArrayList<CupcakeButtom> getAllCupcakeButtoms() throws DataException {
         ArrayList<CupcakeButtom> AllCupcakeButtoms = new ArrayList();
         try {
@@ -113,7 +125,12 @@ public class DataMapper {
 
         return AllCupcakeButtoms;
     }
-
+/**
+ * Method takes all data from CupcakeTop table in sql Database and creates a new CupCakeTop object
+ * for each row in database and return an arraylist of all the CupcakeTops
+ * @return ArrayList<CupcakeTop>
+ * @throws DataException 
+ */
     public ArrayList<CupcakeTop> getAllCupcakeTops() throws DataException {
         ArrayList<CupcakeTop> AllCupcakeTops = new ArrayList();
         try {

@@ -23,6 +23,17 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class CommandBuy extends Command {
     
+    /**
+     * Method takes Session's LineItem ArrayList Object and passes it to the datamappers
+     * TakeOrder method which handles the order and adds it to the database
+     * 
+     * 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     * @throws DataException 
+     */
     
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, DataException {
