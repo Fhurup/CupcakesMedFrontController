@@ -3,7 +3,9 @@ package data;
 
 import java.sql.SQLException;
 
-
+/**
+ * This class is used to check if the DBConnector can connect to the given database.
+ */
 public class connectiontest {
     public static void main(String[] args) {
         connectiontest t = new connectiontest();

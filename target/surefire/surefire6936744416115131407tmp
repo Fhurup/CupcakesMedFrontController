@@ -1,9 +1,0 @@
-#surefire
-#Fri Mar 08 11:03:37 CET 2019
-maven.ext.class.path=C\:\\Program Files\\NetBeans 8.2\\java\\maven-nblib\\netbeans-eventspy.jar
-user.dir=C\:\\Users\\frede\\Documents\\GitHub\\CupcakesMedFrontController
-file.encoding=UTF-8
-localRepository=C\:\\Users\\frede\\.m2\\repository
-netbeans.deploy=true
-netbeans.deploy.clientUrlPart=/jsp/error.jsp
-basedir=C\:\\Users\\frede\\Documents\\GitHub\\CupcakesMedFrontController
