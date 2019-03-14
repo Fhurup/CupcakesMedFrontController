@@ -18,8 +18,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
- * @author frederik
+ * 
+ * 
  */
 public class CommandBuy extends Command {
     
