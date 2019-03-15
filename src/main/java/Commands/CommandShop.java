@@ -21,7 +21,7 @@ import java.util.List;
 
 /**
  *
- * @author frederik
+ * This class is used to add Cupcakes to Cart and updates the shop.jsp page
  */
 public class CommandShop extends Command {
 
