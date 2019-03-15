@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author frederik
+ * This class handles takeOrder and saves the order in the database.
  */
 public class CommandBuy extends Command {
     

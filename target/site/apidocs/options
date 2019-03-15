@@ -1,0 +1,24 @@
+-classpath
+'C:/Users/frede/.m2/repository/mysql/mysql-connector-java/8.0.15/mysql-connector-java-8.0.15.jar;C:/Users/frede/.m2/repository/com/google/protobuf/protobuf-java/3.6.1/protobuf-java-3.6.1.jar;C:/Users/frede/.m2/repository/javax/javaee-web-api/7.0/javaee-web-api-7.0.jar'
+-encoding
+'UTF-8'
+-protected
+-sourcepath
+'C:/Users/frede/Documents/GitHub/CupcakesMedFrontController/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2019. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/frede/Documents/GitHub/CupcakesMedFrontController/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'CupcakesMedFrontController 1.0-SNAPSHOT API'
+-linkoffline
+'https://docs.oracle.com/javase/7/docs/api' 'C:/Users/frede/Documents/GitHub/CupcakesMedFrontController/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'CupcakesMedFrontController 1.0-SNAPSHOT API'
