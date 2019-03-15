@@ -18,8 +18,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
+<<<<<<< HEAD
  *  
  * This class is used to  take order and update the database with the order
+=======
+ * 
+ * 
+>>>>>>> 823560f56f2e884f293ec1b9f2441d40ffef3887
  */
 public class CommandBuy extends Command {
     
